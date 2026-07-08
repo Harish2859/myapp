@@ -9,10 +9,12 @@ pipeline {
     stages {
         stage('Build React') {
             steps {
-                echo 'Installing dependencies...'
-                bat 'npm install'
-                echo 'Building React app...'
-                bat 'npm run build'
+                dir('myApp') {
+                    echo 'Installing dependencies...'
+                    bat 'npm install'
+                    echo 'Building React app...'
+                    bat 'npm run build'
+                }
             }
         }
         stage('Docker Build') {
