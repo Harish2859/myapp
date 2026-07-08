@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout(false)
+    }
+    tools {
+        nodejs 'nodejs'
+    }
     stages {
         stage('Build React') {
             steps {
