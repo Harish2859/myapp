@@ -19,8 +19,10 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                echo 'Creating Docker image...'
-                bat 'docker build -t react-app:latest .'
+                dir('myApp') {
+                    echo 'Creating Docker image...'
+                    bat 'docker build -t react-app:latest .'
+                }
             }
         }
     }
